@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+<jsp:output doctype-root-element="html" doctype-system="about:legacy-compat" omit-xml-declaration="true"/>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/getTest}" th:object="${profile}" method="post">
+    <p>Id: <input type="text" th:field="*{id}" /></p>
+    <p>firstName: <input type="text" th:field="*{firstName}" /></p>
+    <p>lastName: <input type="text" th:field="*{lastName}" /></p>
+
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <br/><br/>
+    <div>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+                <tr>
+                    <td><input type="text" th:field="*{id}"</td>
+                    <td><input type="text" th:field="*{firstName}"</td>
+                    <td><input type="text" th:field="*{lastName}"</td>
+                    <td><input type="text" th:field="*{address}"</td>
+                    <td><input type="text" th:field="*{age}"</td>
+                    <td><input type="text" th:field="*{email}"</td>
+                    <td><input type="text" th:field="*{country}"</td>
+                </tr>
+
+        </table>
+    </div>
+</form>
+
+</body>
+</html>

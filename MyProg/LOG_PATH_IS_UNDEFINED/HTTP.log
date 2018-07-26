@@ -1,0 +1,8 @@
+2018-07-24 01:21:45.199  INFO 14108 --- [http-nio-4002-exec-2] test.prog.controller.ProfileController   :  Запись добавлена
+2018-07-24 01:27:43.635  INFO 1228 --- [http-nio-4002-exec-1] test.prog.controller.ProfileController   :  Запись Антоноо Егоровуу Куфонина 22 10 testmail@google.com добавлена
+2018-07-24 01:32:42.932  INFO 5416 --- [http-nio-4002-exec-1] test.prog.controller.ProfileController   : Запись c ID 7 удалена
+2018-07-24 20:16:15.284  INFO 14656 --- [http-nio-4002-exec-8] test.prog.controller.ProfileController   : Запись Антоноо Егоровуу Куфонина 22 10 testmail@google.com Russia добавлена
+2018-07-24 22:29:08.138  INFO 11544 --- [http-nio-4002-exec-1] test.prog.controller.ProfileController   : Запись Антоноо Егоровуу Куфонина 22 10 testmail@google.com Russia добавлена
+2018-07-25 14:15:04.029  INFO 11600 --- [http-nio-4002-exec-5] test.prog.controller.ProfileController   : Запись Антоноо Егоровуу Куфонина 22 10 testmail@google.com Russia добавлена
+2018-07-25 19:17:24.723  INFO 3012 --- [http-nio-4002-exec-3] test.prog.controller.ProfileController   : Запись c ID 1 удалена
+2018-07-25 19:18:52.128  INFO 15664 --- [http-nio-4002-exec-4] test.prog.controller.ProfileController   : Запись c ID 2 удалена

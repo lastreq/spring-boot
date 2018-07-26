@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Форма для добавления пользователя</h1>
+
+<div class="studentAdd">
+
+    <form  method ="POST">
+        <input type="hidden" path="id" id="id"/>
+        <table>
+            <tr>
+                <td><label for="firstName">Имя: </label> </td>
+                <td><input type="text" name="firstName" id="firstName"/></td>
+            </tr>
+
+            <tr>
+                <td><label for="lastName">Фамилия: </label> </td>
+                <td><input type="text" name="lastName" id="lastName"/></td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Адрес: </label> </td>
+                <td><input type="text" name="address" id="address"/></td>
+            </tr>
+            <tr>
+
+                <td><label for="age">Возраст: </label> </td>
+                <td><input type="text" name="age" id="age"/></td>
+            </tr>
+            <tr>
+            <tr>
+                <td><label for="email">Email: </label> </td>
+                <td><input type="text" name="email" id="email"/></td>
+            </tr>
+            <tr>
+                <td><label for="country">Страна: </label> </td>
+                <td><input type="text" name="country" id="country"/></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+
+                            <input type="submit" value="Добавить" id="add" onClick="add()"/>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+</body>
+</html>
