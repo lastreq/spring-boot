@@ -77,11 +77,6 @@ public class ProfileController {
 
 public class ProfileController {
 
-
-
-
-
-
     private static final Logger log = LoggerFactory.getLogger(ProfileController.class);
     @Autowired
     private ProfileDao profileDao;
@@ -93,69 +88,6 @@ public class ProfileController {
     public ProfileController(ProfileService profileService) {
         this.profileService = profileService;
     }
-
-
-
-
-
-
-
-    @Controller
-// мапим наш REST на /myservice
-    @RequestMapping(value = "/myservice")
-    public class MainController {
-
-        // этот метод будет принимать время методом GET и на его основе
-        // отвечать клиенту
-        @RequestMapping(value= "/{time}", method = RequestMethod.GET)
-        @ResponseBody
-        public MyDataObject getMyData(@PathVariable long time) {
-            return new MyDataObject(Calendar.getInstance(), "Это ответ метода GET!");
-        }
-
-        // этот метод будет принимать Объект MyDataObject и отдавать его клиенту
-        // обычно метод PUT используют для сохранения либо для обновления объекта
-        @RequestMapping(method = RequestMethod.PUT)
-        @ResponseBody
-        public MyDataObject putMyData(@RequestBody MyDataObject md) {
-            return md;
-        }
-
-        // этот метод будет методом POST отдавать объект MyDataObject
-        @RequestMapping(method = RequestMethod.POST)
-        @ResponseBody
-        public MyDataObject postMyData() {
-            return new MyDataObject(Calendar.getInstance(), "это ответ метода POST!");
-        }
-
-        // этот метод будет принимать время методом DELETE
-        // и на его основе можно удалит объект
-        @RequestMapping(value= "/{time}", method = RequestMethod.DELETE)
-        @ResponseBody
-        public MyDataObject deleteMyData(@PathVariable long time) {
-            return new MyDataObject(Calendar.getInstance(), "Это ответ метода DELETE!");
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @RequestMapping(value = "/getTest/{personId}", method = RequestMethod.GET)
@@ -192,6 +124,15 @@ public class ProfileController {
                 Integer.valueOf(requestHttp.getParameter("age")),
                 requestHttp.getParameter("email"),
                 requestHttp.getParameter("country"));
+
+        log.info("Запись {} {} {} {} {} {} добавлена",
+                requestHttp.getParameter("firstName"),
+                requestHttp.getParameter("lastName"),
+                requestHttp.getParameter("address"),
+                Integer.valueOf(requestHttp.getParameter("age")),
+                requestHttp.getParameter("email"),
+                requestHttp.getParameter("country"));
+
         return "postTest";
     }
 
@@ -213,36 +154,6 @@ public class ProfileController {
         return "deleteTest";
     }
 
-   /* @PostMapping(value = {"/postTest"},  produces = "application/json")
-    @ResponseBody
-    public JsonResultBean saveTicketTemplate(@RequestBody TicketTemplateFieldBean fieldBean){
-
-        profileService.createProfile(
-                firstName,
-                lastName,
-                address,
-                age,
-                email,
-                country
-        );
-
-    }*/
-   /* @RequestMapping(value = {"/postTest"}, method = RequestMethod.POST)
-    public String updateTask(@ModelAttribute("task") Profile profile) {
-        ProfileService.CreateProfile(profile);
-        return "redirect:/";
-    }*/
-/*
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String showProfiles(Model model) {
-        List<ProfileInfo> list = profileDao.listProfileInfo();
-
-        model.addAttribute("accountInfos", list);
-
-        return "accountsPage";
-    }
-*/
-
 
     @RequestMapping(value = "/profile/get/{personId}", //
             method = RequestMethod.GET, //
@@ -254,20 +165,6 @@ public class ProfileController {
     public Profile getProfile(@PathVariable int personId) {
         return profileService.getProfile(personId);
     }
-
-
-
-  /*  @GetMapping("/getTest/{personId}")
-    public String getTestForm(Model model,@PathVariable int personId) {
-
-        model.addAttribute("profile", profileService.getProfile(personId));
-        return "getTest";
-    }*/
-
-
-
-
-
 
 
 

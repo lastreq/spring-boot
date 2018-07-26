@@ -6,3 +6,4 @@
 2018-07-25 14:15:04.029  INFO 11600 --- [http-nio-4002-exec-5] test.prog.controller.ProfileController   : Запись Антоноо Егоровуу Куфонина 22 10 testmail@google.com Russia добавлена
 2018-07-25 19:17:24.723  INFO 3012 --- [http-nio-4002-exec-3] test.prog.controller.ProfileController   : Запись c ID 1 удалена
 2018-07-25 19:18:52.128  INFO 15664 --- [http-nio-4002-exec-4] test.prog.controller.ProfileController   : Запись c ID 2 удалена
+2018-07-26 16:15:46.312  INFO 3456 --- [http-nio-4002-exec-2] test.prog.controller.ProfileController   : Запись Антон Кисл Куфонина 22 24 guripef@2odem.com Россия добавлена
