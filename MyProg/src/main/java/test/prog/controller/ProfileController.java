@@ -34,44 +34,6 @@ import java.util.List;
 import java.util.Calendar;
 
 
-
-/*@RestController
-@RequestMapping(value = "/profile",
-        produces = { MediaType.APPLICATION_JSON_VALUE, //
-                MediaType.APPLICATION_XML_VALUE })
-
-
-public class ProfileController {
-
-    private final ProfileService profileService;
-
-    @Autowired
-    public ProfileController(ProfileService profileService) {
-        this.profileService = profileService;
-    }
-
-    @GetMapping(value = "/{personId:\\d+}")
-    public Profile getProfile(@PathVariable int personId) {
-        return profileService.getProfile(personId);
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createProfile(@Valid @RequestBody ProfileRequest request) {
-        profileService.createProfile(
-                request.getFirstName(),
-                request.getLastName(),
-                request.getAddress(),
-                request.getAge()
-        );
-    }
-
-
-    @DeleteMapping(value = "/{personId:\\d+}")
-    public void deleteProfile(@PathVariable int personId) {
-        profileService.deleteProfile(personId);
-    }
-}*/
 @Controller
 
 
