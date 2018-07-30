@@ -1,37 +1,22 @@
 package test.prog.controller;
-import test.prog.controller.Greeting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import test.prog.model.Profile;
-import test.prog.model.MyDataObject;
 import test.prog.dao.ProfileDao;
-import test.prog.model.ProfileInfo;
+import test.prog.model.Profile;
 import test.prog.request.ProfileRequest;
 import test.prog.service.ProfileService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import javax.servlet.FilterChain;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.ui.Model;
-import org.springframework.beans.factory.annotation.Value;
 import javax.validation.Valid;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import java.util.List;
-import java.util.Calendar;
 
 
 @Controller
@@ -52,25 +37,31 @@ public class ProfileController {
     }
 
 
-    @RequestMapping(value = "/getTest/{personId}", method = RequestMethod.GET)
-    public String showBankAccounts(Model model,@PathVariable int personId) {
-
-
-        model.addAttribute("profile", profileService.getProfile(personId));
+    @GetMapping(value = "/getTest")
+    public String GetTestGet(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 
         return "getTest";
     }
 
 
+    @PostMapping(value = "/getTest")
+    public String GetTestPost(Model model,HttpServletRequest request, HttpServletResponse response) throws ServletException{
+
+
+        model.addAttribute("profile", profileService.getProfile(Integer.valueOf(request.getParameter("id"))));
+
+        return "result";
+    }
+
     @GetMapping("/postTest")
-    public String doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public String PostTestGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 
         return "postTest";
     }
 
     @PostMapping("/postTest")
-    public String doPost(@Valid  ProfileRequest request,HttpServletRequest requestHttp, HttpServletResponse response) throws ServletException {
+    public String PostTestPost(@Valid  ProfileRequest request,HttpServletRequest requestHttp, HttpServletResponse response) throws ServletException {
         try {
             requestHttp.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -125,7 +116,9 @@ public class ProfileController {
     @ResponseBody
 
     public Profile getProfile(@PathVariable int personId) {
+
         return profileService.getProfile(personId);
+
     }
 
 
@@ -147,6 +140,7 @@ public class ProfileController {
                 );
 
         log.info("Запись {} {} {} {} {} {} добавлена",
+
                 request.getFirstName(),
                 request.getLastName(),
                 request.getAddress(),

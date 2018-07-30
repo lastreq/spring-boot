@@ -1,13 +1,10 @@
 package test.prog.dao;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import test.prog.model.Profile;
-import test.prog.model.ProfileInfo;
-
 
 import java.util.Optional;
 
@@ -39,21 +36,7 @@ public class ProfileDaoImpl implements ProfileDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-/*    @Override
-    public Profile findById(int id) {
 
-        return this.entityManager.find(Profile.class, id);
-    }
-*/
-
-/*
-    public List<ProfileInfo> listProfileInfo() {
-        String sql = "Select new " + ProfileInfo.class.getName() //
-                + "(e.id, e.firstName, e.lastName, e.address,e.age,e.email,e.country) " //
-                + " from " + Profile.class.getName() + " e ";
-        Query query = entityManager.createQuery(sql, ProfileInfo.class);
-        return query.getResultList();
-    }*/
     @Override
     public Optional<Profile> getProfileById(int id) {
         MapSqlParameterSource params = new MapSqlParameterSource();
